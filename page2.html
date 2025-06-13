@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Memories</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Carousel fills entire background */
+    #backgroundCarousel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: -2;
+    }
+
+    .carousel-inner,
+    .carousel-item {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .carousel-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; /* Fill background cleanly */
+      filter: brightness(0.65);
+    }
+
+    /* Optional dark overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+
+    /* Text box in center */
+    .content-box {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      margin: 80px auto;
+      padding: 30px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .content-box {
+        padding: 20px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Carousel -->
+  <div id="backgroundCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/IMG-20250602-WA0004.jpg" alt="1">
+      </div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0026.jpg" alt="2"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0027.jpg" alt="3"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0028.jpg" alt="4"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0029.jpg" alt="5"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0030.jpg" alt="6"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0031.jpg" alt="7"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0032.jpg" alt="8"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0033.jpg" alt="9"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0034.jpg" alt="10"></div>
+      <div class="carousel-item"><img src="images/IMG-20250613-WA0035.jpg" alt="11"></div>
+    </div>
+  </div>
+
+  <!-- Optional overlay -->
+  <div class="overlay"></div>
+
+  <!-- Center content -->
+  <div class="content-box">
+    <h2>First Memories</h2>
+    <p>
+      These memories are something we can carry together for a lifetime. I love all our images together.<br>
+      Out of the ones, I want you to remember the colour of the dress you were wearing on our night in Goa.
+      I saw the most prettiest and stunning girl in that dress.
+    </p>
+
+    <input type="text" id="dressColor" class="form-control mt-2" placeholder="Enter color">
+    <button class="btn btn-success mt-3" onclick="checkAnswer()">Submit</button>
+    <p id="error" class="text-danger mt-2"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById('dressColor').value.trim().toLowerCase();
+      if (answer === 'maroon') {
+        window.location.href = 'final.html';
+      } else {
+        document.getElementById('error').innerText = "Not quite. Try again :)";
+      }
+    }
+  </script>
+</body>
+</html>
